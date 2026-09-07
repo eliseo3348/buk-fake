@@ -21,7 +21,9 @@ router.get('/licence/types/:id', (req, res) => {
 
 // GET /absences/licence
 router.get('/licence', (req, res) => {
-  return res.json({ data: store.licences });
+  let result = store.licences;
+  if (req.query.employee_id) result = result.filter(l => l.employee_id === parseInt(req.query.employee_id, 10));
+  return res.json({ data: result });
 });
 
 // GET /absences/licence/:id

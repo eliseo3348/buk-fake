@@ -21,6 +21,7 @@ function applyDateFilters(list, query) {
   if (query.end_date)     result = result.filter(v => v.end_date === query.end_date);
   if (query.end_after)    result = result.filter(v => v.end_date >= query.end_after);
   if (query.start_before) result = result.filter(v => v.start_date <= query.start_before);
+  if (query.employee_id)  result = result.filter(v => v.employee_id === parseInt(query.employee_id, 10));
   return result;
 }
 
